@@ -10,8 +10,8 @@ export const nav = [
     cName: "nav__link",
   },
   {
-    text: "INSTRUCTOR",
-    path: "/instructor",
+    text: "TRAINING",
+    path: "/training",
     cName: "nav__link",
   },
   {

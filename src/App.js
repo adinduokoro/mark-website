@@ -10,27 +10,33 @@ import Offers from './components/Offers';
 import WhyUs from './components/WhyUs';
 import Contact from './components/Contact';
 import Info from './components/Info';
+import Home from './pages/Home';
+import Layout from './pages/Layout.js'
+import ContactPage from './pages/ContactPage';
+import FaqPage from './pages/FaqPage';
+import LocationPage from './pages/LocationPage'
+import TrainingPage from './pages/TrainingPage';
 
 
 
 
 function App() {
   return (
-    <div className="App">
-      <div className="app__container">
-          <TopBar />
-          <Navbar />
-          <Hero />
-          <AboutUs />
-          <Quote />
-          <Offers />
-          <WhyUs />
-          <Contact />
-          <Info />
-      {/* body */}
-      {/* footer */}
-</div>
-</div>
+
+      <Routes>
+        <Route path='/' element={<Layout />} >
+          <Route index element={<Home />} />
+          <Route path='location' element={<LocationPage />} />
+          <Route path='training' element={<TrainingPage />} />
+          <Route path='faq' element={<FaqPage />} />
+          <Route path='contact' element={<ContactPage />} />
+        {/* body */}
+        {/* footer */}
+
+        </Route>
+    </Routes>
+
+
 
   );
 }

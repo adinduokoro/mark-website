@@ -2,6 +2,8 @@ import React from 'react'
 import Logo from '../images/scorpion-logo.png'
 import { nav } from '../data/Data'
 import BookNowBtn from './BookNowBtn.js'
+import { Link } from 'react-router-dom'
+import { Component } from 'react'
 
 //  dolores?
 
@@ -17,9 +19,9 @@ const Navbar = () => {
             {nav.map((item, index) => {
               return (
                 <li key={index}>
-                  <a className={item.cName} href="/">
+                  <Link className={item.cName} to={item.path}>
                     {item.text}
-                  </a>
+                  </Link>
                 </li>
               )
             })}

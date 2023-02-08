@@ -1,0 +1,949 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width:768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+.App{
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+
+
+  .top__bar{
+    background-color: #141414;
+    display: flex;
+    justify-content: space-between;
+    padding: 1px 16px;
+    align-items: center;
+    height: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+    border-bottom: 2px solid #FFD700;
+  
+  
+    .contact__container{
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    
+  
+      .phone{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        
+        svg{
+          color: #ebebeb;
+          transform: scale(0.8);
+          
+        }
+    
+        p{
+          color: #ebebeb;
+          font-size: 12px;
+        }
+    
+  
+      }
+  
+      .email{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+  
+        svg{
+          color: #ebebeb;
+          transform: scale(0.8);
+  
+        
+        }
+    
+        p{
+          color: #ebebeb;
+          font-size: 12px;
+        }
+      }
+    }
+  
+    .social__container{
+  
+      a {
+        width: 24px;
+        height: 1.5rem;
+        background-color: #ebebeb;
+        text-align: center;
+        font-size: 14px;
+        margin: 0 10px;
+        display: block;
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+        border: 3px solid #ebebeb;
+        z-index: 1;
+      }
+      
+      a .icon {
+        position: relative;
+        color: #141414;
+        transition: .5s;
+        z-index: 3;
+      }
+      
+      a:hover .icon {
+        color: #ebebeb;
+        transform: rotateY(360deg);
+      }
+      
+      a:before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #f00;
+        transition: .5s;
+        z-index: 2;
+      }
+      
+      a:hover:before {
+        top: 0;
+      }
+      
+      a:before{
+        background: #3b5999;
+      }
+  
+  
+    }
+  
+  
+    
+  }
+  
+  .navbar{
+    align-items: center;
+    padding: 0 4.5rem;
+    position: fixed;
+    top: 1rem;
+    width: 100%;
+    height: 8rem;
+    background-color: #ebebeb;
+    z-index: 99;
+    border-bottom: 2px solid #FFD700;
+    @include mobile(){
+      height: 4rem;
+      padding: 0 2rem;
+    }
+  
+    
+    .navbar__container{
+      display: flex;
+      height: 100%;
+      justify-content: space-between;
+      background-color: #ebebeb;
+  
+      .navbar__logp{
+        cursor: pointer;
+        height: 100%;
+        width: 100%;    
+      }
+      
+      img{
+        height: 100%;
+        width: 100%;
+      
+    }
+  
+      
+    }
+    
+  
+  
+    
+  
+    .menu__items{
+      display: flex;
+      align-items: center;
+      @include tablet(){
+        display: none;
+      }
+      @include mobile(){
+        display: none;
+      }
+      
+      .nav__menu{
+        font-family: 'Bebas Neue', cursive;
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        grid-gap: 20px;
+        list-style: none;
+        align-items: center;
+        margin-right: 40px;
+  
+        .nav__link{
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.5rem;
+          letter-spacing: 2px;
+          color: #141414;
+          padding: 10px;
+  
+          &:hover{
+            background-color: #ffd700;
+            border-radius: 4px;
+            transition: all 0.2s ease-in-out;
+          }
+        }
+      }
+  
+      button, button::after {
+        cursor: pointer;
+        width: 140px;
+        height: 45px;
+        font-size: 25px;
+        font-family: 'Bebas Neue', cursive;
+        background: linear-gradient(45deg, transparent 5%, #FF0000 5%);
+        border: 0;
+        color: #ebebeb;
+        letter-spacing: 3px;
+        line-height: 0px;
+        box-shadow: 6px 0px 0px #FFD700;
+        outline: transparent;
+        position: relative;
+      }
+      
+      button::after {
+        --slice-0: inset(50% 50% 50% 50%);
+        --slice-1: inset(80% -6px 0 0);
+        --slice-2: inset(50% -6px 30% 0);
+        --slice-3: inset(10% -6px 85% 0);
+        --slice-4: inset(40% -6px 43% 0);
+        --slice-5: inset(80% -6px 5% 0);
+        
+        content: 'Book Now';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, transparent 3%, #FFD700 3%, #FFD700 5%, #FF013C 5%);
+        text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #FFD700;
+        clip-path: var(--slice-0);
+      }
+      
+      button:hover::after {
+        animation: 1s glitch;
+        animation-timing-function: steps(2, end);
+      }
+      
+      @keyframes glitch {
+        0% {
+          clip-path: var(--slice-1);
+          transform: translate(-20px, -10px);
+        }
+        10% {
+          clip-path: var(--slice-3);
+          transform: translate(10px, 10px);
+        }
+        20% {
+          clip-path: var(--slice-1);
+          transform: translate(-10px, 10px);
+        }
+        30% {
+          clip-path: var(--slice-3);
+          transform: translate(0px, 5px);
+        }
+        40% {
+          clip-path: var(--slice-2);
+          transform: translate(-5px, 0px);
+        }
+        50% {
+          clip-path: var(--slice-3);
+          transform: translate(5px, 0px);
+        }
+        60% {
+          clip-path: var(--slice-4);
+          transform: translate(5px, 10px);
+        }
+        70% {
+          clip-path: var(--slice-2);
+          transform: translate(-10px, 10px);
+        }
+        80% {
+          clip-path: var(--slice-5);
+          transform: translate(20px, -10px);
+        }
+        90% {
+          clip-path: var(--slice-1);
+          transform: translate(-10px, 0px);
+        }
+        100% {
+          clip-path: var(--slice-1);
+          transform: translate(0);
+        }
+      }
+    }
+  
+  
+  }
+  
+  .hero{
+    width: 100%;
+    height: 100vh;
+  
+    .hero__image{
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+        
+      }
+    }
+  
+    .hero__info{
+      width: 75%;
+      height: 10rem;
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      
+      h1{
+        background-color: #ebebeb;
+        font-size: 3rem;
+        white-space: nowrap;
+        font-weight: 800;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        @include mobile(){
+          white-space: normal;
+        }
+      }
+  
+      p{
+        color: white;
+        font-size: 1.25rem;
+        padding: 0.5rem 0 2rem 0;
+        text-align: center;
+        @include mobile(){
+          font-size: 16px;
+        }
+      }
+  
+      button, button::after {
+        cursor: pointer;
+        width: 160px;
+        height: 60px;
+        font-size: 30px;
+        font-family: 'Bebas Neue', cursive;
+        background: linear-gradient(45deg, transparent 5%, #FF0000 5%);
+        border: 0;
+        color: #ebebeb;
+        letter-spacing: 3px;
+        line-height: 0px;
+        box-shadow: 6px 0px 0px #FFD700;
+        outline: transparent;
+        position: relative;
+        @include mobile(){
+          width: 140px;
+          height: 50px;
+          font-size: 26px;
+        }
+      }
+      
+      button::after {
+        --slice-0: inset(50% 50% 50% 50%);
+        --slice-1: inset(80% -6px 0 0);
+        --slice-2: inset(50% -6px 30% 0);
+        --slice-3: inset(10% -6px 85% 0);
+        --slice-4: inset(40% -6px 43% 0);
+        --slice-5: inset(80% -6px 5% 0);
+        
+        content: 'Book Now';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, transparent 3%, #FFD700 3%, #FFD700 5%, #FF013C 5%);
+        text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #FFD700;
+        clip-path: var(--slice-0);
+      }
+      
+      button:hover::after {
+        animation: 1s glitch;
+        animation-timing-function: steps(2, end);
+      }
+      
+      @keyframes glitch {
+        0% {
+          clip-path: var(--slice-1);
+          transform: translate(-20px, -10px);
+        }
+        10% {
+          clip-path: var(--slice-3);
+          transform: translate(10px, 10px);
+        }
+        20% {
+          clip-path: var(--slice-1);
+          transform: translate(-10px, 10px);
+        }
+        30% {
+          clip-path: var(--slice-3);
+          transform: translate(0px, 5px);
+        }
+        40% {
+          clip-path: var(--slice-2);
+          transform: translate(-5px, 0px);
+        }
+        50% {
+          clip-path: var(--slice-3);
+          transform: translate(5px, 0px);
+        }
+        60% {
+          clip-path: var(--slice-4);
+          transform: translate(5px, 10px);
+        }
+        70% {
+          clip-path: var(--slice-2);
+          transform: translate(-10px, 10px);
+        }
+        80% {
+          clip-path: var(--slice-5);
+          transform: translate(20px, -10px);
+        }
+        90% {
+          clip-path: var(--slice-1);
+          transform: translate(-10px, 0px);
+        }
+        100% {
+          clip-path: var(--slice-1);
+          transform: translate(0);
+        }
+      }
+    }
+    
+  
+  }
+  
+  .aboutUs{
+    padding: 0 0rem;
+    background-color: #141414;
+    height: 82vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    .aboutUs__container{
+      height: 90%;
+      width: 90%;
+      position: relative;
+  
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  
+      .aboutUs__overlay{
+        background-color: #141414;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        width: 50%;
+        height: 100%;
+        opacity: .8;
+
+        @include mobile(){
+          width: 100%;
+          opacity: .85;
+        }
+      }
+  
+      .aboutUs__info{
+        padding: 0 30px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 3;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        @include mobile(){
+          width: 100%;
+        }
+        
+        .aboutUs__text{
+          margin: auto;
+  
+          color: #ebebeb; 
+  
+          h1{
+            font-weight: 800;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            white-space: nowrap;
+            @include tablet(){
+              font-size: 3rem;
+            }
+          }
+  
+          p{
+            font-size: 1rem;
+          }
+          
+          
+        }
+  
+        
+      }
+      
+  
+  }
+  }
+  
+  .quote{
+    background-color: #FFD700;
+    width: 100%;
+    height: 15vh;
+    display: flex;
+  
+    .quote__container{
+      margin: auto;
+      display: flex;
+      gap: 20px;
+      color: #141414;
+  
+    }
+  
+    h1{
+      font-weight: 800;
+      @include mobile(){
+        font-size: 1rem;
+        white-space: nowrap;
+      }
+    }
+  
+    svg {scale: 1.5;}
+  }
+  
+  
+  .offers{
+    background-color: #141414;
+    height: 82vh;
+    display: flex;
+    color: white;
+    @include mobile(){
+      height: auto;
+    }
+  
+    .offers__container{
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+
+  
+  
+      h1{margin-top: 4rem;}
+      
+      .card__container {
+        
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 0;
+        @include mobile(){
+          flex-direction: column;
+        }
+    
+        .card {
+          position: relative;
+          width: 300px;
+          height: 400px;
+          background: #000;
+          border-radius: 15px;
+          box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+          @include tablet(){
+            width: 225px;
+            height: 325px;
+          }
+          @include mobile(){
+            margin-bottom: 50px;
+          }
+
+    
+          .face {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            &.face1 {
+              box-sizing: border-box;
+              padding: 15px;
+  
+              h2{
+                margin: 0;
+                padding: 0;
+              }
+      
+              .card__text {
+                background-color: #fffc00;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+              }
+            }
+    
+            &.face2 {
+              transition: 0.5s;
+    
+              h2 {
+                margin: 0;
+                padding: 0;
+                font-size: 2rem;
+                color: #fff;
+                transition: 0.5s;
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                z-index: 10;
+                text-align: center;
+              }
+            }
+          }
+        }
+    
+        .card:hover .face.face2 {
+          height: 90px;
+    
+          h2 {
+            font-size: 1rem;
+          }
+        }
+    
+        .card:nth-child(1) .face.face2 {
+  
+          background-color: black;
+  
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+  
+  // https://codepen.io/DivineBlow/pen/ZEBqNZb
+  .whyUs{
+    padding: 3rem;
+    background-color: #141414;
+    height: 82vh;
+    display: flex;
+    @include mobile(){
+      padding: 0;
+    }
+    
+    .whyUs__container{
+      width: 100%;
+      position: relative;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  
+      .whyUs__overlay{
+        background-color: #141414;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 50%;
+        height: 100%;
+        opacity: .93;
+        border-right: 1px solid #FF0000;
+        @include mobile(){
+          width: 100%;
+          border: none;
+        }
+      }
+  
+      .whyUs__info{
+        padding: 0 30px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        @include mobile(){
+          width: 100%;
+        }
+        
+        .whyUs__text{
+          margin: auto;
+  
+          
+          h1{
+            font-weight: 800;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            white-space: nowrap;
+            color: #ffd700; 
+  
+          }
+          
+          p{
+            font-size: 1rem;
+            color: #ebebeb; 
+          }
+          
+          
+        }
+  
+        
+      }
+      
+  
+  }
+  }
+  
+  .contact{
+    background-color: #141414;
+    height: 77vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  
+    .contact__container{
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      
+      h1{
+        font-weight: 800;
+        font-size: 4rem;
+        white-space: nowrap;
+        color: #F8F005;
+        @include mobile(){
+          font-size: 2rem;
+        }
+      }
+      hr{
+        width: 10rem;
+  
+        height: 1px;
+        border: 1px solid #FF0000;
+        @include mobile(){
+          width: 5rem;
+        }
+        
+      }
+      .contact__box{
+        display: flex;
+        height: 100%;
+        
+        form{
+          margin-bottom: 30px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+  
+          input, textarea{
+            width: 400px;
+            height: 40px;
+            margin-top: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border: 1px solid #FFD700;
+            border-radius: 14px;
+            outline: none;
+            background-color: #141414;
+            font-size: 1rem;
+            color: #FFD700;
+          }
+          
+          ::placeholder{
+            color: #ffd700;
+            opacity: .5;
+          }
+          
+          .textarea__field{
+            height: 100px;
+            padding-top: 10px;
+          }
+          
+        }
+        
+      }
+  
+      button, button::after {
+        cursor: pointer;
+        width: 160px;
+        height: 60px;
+        font-size: 30px;
+        font-family: 'Bebas Neue', cursive;
+        background: linear-gradient(45deg, transparent 5%, #FF0000 5%);
+        border: 0;
+        color: #ebebeb;
+        letter-spacing: 3px;
+        line-height: 0px;
+        box-shadow: 6px 0px 0px #FFD700;
+        outline: transparent;
+        position: relative;
+        @include mobile(){
+          width: 140px;
+          height: 50px;
+          font-size: 26px;
+        }
+      }
+      
+      button::after {
+        --slice-0: inset(50% 50% 50% 50%);
+        --slice-1: inset(80% -6px 0 0);
+        --slice-2: inset(50% -6px 30% 0);
+        --slice-3: inset(10% -6px 85% 0);
+        --slice-4: inset(40% -6px 43% 0);
+        --slice-5: inset(80% -6px 5% 0);
+        
+        content: 'Book Now';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, transparent 3%, #FFD700 3%, #FFD700 5%, #FF013C 5%);
+        text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #FFD700;
+        clip-path: var(--slice-0);
+      }
+      
+      button:hover::after {
+        animation: 1s glitch;
+        animation-timing-function: steps(2, end);
+      }
+      
+      @keyframes glitch {
+        0% {
+          clip-path: var(--slice-1);
+          transform: translate(-20px, -10px);
+        }
+        10% {
+          clip-path: var(--slice-3);
+          transform: translate(10px, 10px);
+        }
+        20% {
+          clip-path: var(--slice-1);
+          transform: translate(-10px, 10px);
+        }
+        30% {
+          clip-path: var(--slice-3);
+          transform: translate(0px, 5px);
+        }
+        40% {
+          clip-path: var(--slice-2);
+          transform: translate(-5px, 0px);
+        }
+        50% {
+          clip-path: var(--slice-3);
+          transform: translate(5px, 0px);
+        }
+        60% {
+          clip-path: var(--slice-4);
+          transform: translate(5px, 10px);
+        }
+        70% {
+          clip-path: var(--slice-2);
+          transform: translate(-10px, 10px);
+        }
+        80% {
+          clip-path: var(--slice-5);
+          transform: translate(20px, -10px);
+        }
+        90% {
+          clip-path: var(--slice-1);
+          transform: translate(-10px, 0px);
+        }
+        100% {
+          clip-path: var(--slice-1);
+          transform: translate(0);
+        }
+      }
+    }
+  }
+  
+  .info{
+    background-color: #141414;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    position: relative;
+  
+    .info__container{
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      
+      p{
+        margin: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #FFD700;
+      }
+    }
+  }
+
+}  
+
+
+

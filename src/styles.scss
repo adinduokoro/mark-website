@@ -22,8 +22,44 @@
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+  background-color: #141414;
 
+  
+  .location__page{
+    color: #ebebeb;
+    background-color: #141414;
+    padding-top: 9rem;
+    @include mobile(){
+      padding-top: 4rem;
+    }
+  }
+  
+  .training__page{
+    color: #ebebeb;
+    background-color: #141414;
+    padding-top: 9rem;
+    @include mobile(){
+      padding-top: 4rem;
+    }
+  }
 
+  .faq__page{
+    color: #ebebeb;
+    background-color: #141414;
+    padding-top: 9rem;
+    @include mobile(){
+      padding-top: 4rem;
+    }
+  }
+  
+  .contact__page{
+    background-color: #141414;
+    padding-top: 9rem;
+    @include mobile(){
+      padding-top: 4rem;
+    }
+  }
+  
   .top__bar{
     background-color: #141414;
     display: flex;
@@ -167,8 +203,10 @@
       }
       
       img{
+        object-fit: cover;
         height: 100%;
         width: 100%;
+        
       
     }
   
@@ -562,6 +600,7 @@
   
   
   .offers{
+    margin-bottom: -1px;
     background-color: #141414;
     height: 82vh;
     display: flex;
@@ -672,6 +711,7 @@
   
   // https://codepen.io/DivineBlow/pen/ZEBqNZb
   .whyUs{
+    margin-bottom: -1px;
     padding: 3rem;
     background-color: #141414;
     height: 82vh;
@@ -693,6 +733,7 @@
   
       .whyUs__overlay{
         background-color: #141414;
+        margin: -1px;
         position: absolute;
         top: 0;
         left: 0;
@@ -750,9 +791,10 @@
   
   }
   }
-  
+
   .contact{
     background-color: #141414;
+    margin-bottom: -1px;
     height: 77vh;
     display: flex;
     justify-content: center;

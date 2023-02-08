@@ -2,7 +2,8 @@ import React from 'react'
 
 const TrainingPage = () => {
   return (
-    <div>TrainingPage</div>
+    <div className='training__page'>TrainingPage
+    </div>
   )
 }
 

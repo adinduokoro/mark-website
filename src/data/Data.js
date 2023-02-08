@@ -10,7 +10,7 @@ export const nav = [
     cName: "nav__link",
   },
   {
-    text: "TRAINING",
+    text: "CLASSES/TRAINING",
     path: "/training",
     cName: "nav__link",
   },

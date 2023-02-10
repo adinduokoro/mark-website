@@ -22,25 +22,245 @@
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  background-color: #141414;
+
 
   
-  .location__page{
+  .locationPage{
     color: #ebebeb;
     background-color: #141414;
     padding-top: 9rem;
     @include mobile(){
       padding-top: 4rem;
+    }
+
+    .locationPage__container{
+
+      .location__hero{
+        position: relative;
+        height: 30vh;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+
+        .overlay{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #000;
+          z-index: 3;
+          opacity: .8;
+
+        }
+
+        h1{
+          position: absolute;
+          color: #ebebeb;
+          z-index: 5;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-weight: 800;
+          font-size: 4rem;
+          white-space: nowrap;
+        }
+      }
     }
   }
   
-  .training__page{
-    color: #ebebeb;
+  .trainingPage{
     background-color: #141414;
     padding-top: 9rem;
+    width: 100%;
+    
+    
     @include mobile(){
       padding-top: 4rem;
     }
+    
+    .trainingPage__container{
+      
+      .training__hero{
+        position: relative;
+        height: 30vh;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+
+        .overlay{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #000;
+          z-index: 3;
+          opacity: .8;
+
+        }
+
+        h1{
+          position: absolute;
+          color: #ebebeb;
+          z-index: 5;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-weight: 800;
+          font-size: 4rem;
+          white-space: nowrap;
+        }
+      }
+
+      .packages{
+        height: auto;
+
+        
+        .packages__info{
+          display: flex;
+          padding: 3rem 5rem;
+          
+          .package__title{
+            flex: .25;
+            border-right: 2px solid #FF0000;
+            padding: 12px;
+
+            h1{
+              color: #ebebeb;
+              font-weight: 600;
+            }
+
+            p {
+              color: #FFD700;
+              font-size: 2.5rem;
+            }
+          }
+
+          .package__text{
+            padding-left: 12px ;
+            flex: .75;
+
+            p {
+              color: #ebebeb;
+              font-size: 2rem;
+            }
+
+
+          }
+        }
+      }
+
+      .btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem;
+        .booknow__btn{
+  
+          button, button::after {
+            cursor: pointer;
+            width: 250px;
+            height: 100px;
+            font-size: 50px;
+            font-family: 'Bebas Neue', cursive;
+            background: linear-gradient(45deg, transparent 5%, #FF0000 5%);
+            border: 0;
+            color: #ebebeb;
+            letter-spacing: 3px;
+            line-height: 0px;
+            box-shadow: 6px 0px 0px #FFD700;
+            outline: transparent;
+            position: relative;
+          }
+          
+          button::after {
+            --slice-0: inset(50% 50% 50% 50%);
+            --slice-1: inset(80% -6px 0 0);
+            --slice-2: inset(50% -6px 30% 0);
+            --slice-3: inset(10% -6px 85% 0);
+            --slice-4: inset(40% -6px 43% 0);
+            --slice-5: inset(80% -6px 5% 0);
+            
+            content: 'Book Now';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 3%, #FFD700 3%, #FFD700 5%, #FF013C 5%);
+            text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #FFD700;
+            clip-path: var(--slice-0);
+          }
+          
+          button:hover::after {
+            animation: 1s glitch;
+            animation-timing-function: steps(2, end);
+          }
+          
+          @keyframes glitch {
+            0% {
+              clip-path: var(--slice-1);
+              transform: translate(-20px, -10px);
+            }
+            10% {
+              clip-path: var(--slice-3);
+              transform: translate(10px, 10px);
+            }
+            20% {
+              clip-path: var(--slice-1);
+              transform: translate(-10px, 10px);
+            }
+            30% {
+              clip-path: var(--slice-3);
+              transform: translate(0px, 5px);
+            }
+            40% {
+              clip-path: var(--slice-2);
+              transform: translate(-5px, 0px);
+            }
+            50% {
+              clip-path: var(--slice-3);
+              transform: translate(5px, 0px);
+            }
+            60% {
+              clip-path: var(--slice-4);
+              transform: translate(5px, 10px);
+            }
+            70% {
+              clip-path: var(--slice-2);
+              transform: translate(-10px, 10px);
+            }
+            80% {
+              clip-path: var(--slice-5);
+              transform: translate(20px, -10px);
+            }
+            90% {
+              clip-path: var(--slice-1);
+              transform: translate(-10px, 0px);
+            }
+            100% {
+              clip-path: var(--slice-1);
+              transform: translate(0);
+            }
+          }
+  
+        }
+
+      }
+      
+
+      
+    }
+
+  }
   }
 
   .faq__page{
@@ -251,94 +471,97 @@
           }
         }
       }
-  
-      button, button::after {
-        cursor: pointer;
-        width: 140px;
-        height: 45px;
-        font-size: 25px;
-        font-family: 'Bebas Neue', cursive;
-        background: linear-gradient(45deg, transparent 5%, #FF0000 5%);
-        border: 0;
-        color: #ebebeb;
-        letter-spacing: 3px;
-        line-height: 0px;
-        box-shadow: 6px 0px 0px #FFD700;
-        outline: transparent;
-        position: relative;
-      }
-      
-      button::after {
-        --slice-0: inset(50% 50% 50% 50%);
-        --slice-1: inset(80% -6px 0 0);
-        --slice-2: inset(50% -6px 30% 0);
-        --slice-3: inset(10% -6px 85% 0);
-        --slice-4: inset(40% -6px 43% 0);
-        --slice-5: inset(80% -6px 5% 0);
+      .booknow__btn{
+        button, button::after {
+          cursor: pointer;
+          width: 140px;
+          height: 45px;
+          font-size: 25px;
+          font-family: 'Bebas Neue', cursive;
+          background: linear-gradient(45deg, transparent 5%, #FF0000 5%);
+          border: 0;
+          color: #ebebeb;
+          letter-spacing: 3px;
+          line-height: 0px;
+          box-shadow: 6px 0px 0px #FFD700;
+          outline: transparent;
+          position: relative;
+        }
         
-        content: 'Book Now';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(45deg, transparent 3%, #FFD700 3%, #FFD700 5%, #FF013C 5%);
-        text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #FFD700;
-        clip-path: var(--slice-0);
+        button::after {
+          --slice-0: inset(50% 50% 50% 50%);
+          --slice-1: inset(80% -6px 0 0);
+          --slice-2: inset(50% -6px 30% 0);
+          --slice-3: inset(10% -6px 85% 0);
+          --slice-4: inset(40% -6px 43% 0);
+          --slice-5: inset(80% -6px 5% 0);
+          
+          content: 'Book Now';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(45deg, transparent 3%, #FFD700 3%, #FFD700 5%, #FF013C 5%);
+          text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #FFD700;
+          clip-path: var(--slice-0);
+        }
+        
+        button:hover::after {
+          animation: 1s glitch;
+          animation-timing-function: steps(2, end);
+        }
+        
+        @keyframes glitch {
+          0% {
+            clip-path: var(--slice-1);
+            transform: translate(-20px, -10px);
+          }
+          10% {
+            clip-path: var(--slice-3);
+            transform: translate(10px, 10px);
+          }
+          20% {
+            clip-path: var(--slice-1);
+            transform: translate(-10px, 10px);
+          }
+          30% {
+            clip-path: var(--slice-3);
+            transform: translate(0px, 5px);
+          }
+          40% {
+            clip-path: var(--slice-2);
+            transform: translate(-5px, 0px);
+          }
+          50% {
+            clip-path: var(--slice-3);
+            transform: translate(5px, 0px);
+          }
+          60% {
+            clip-path: var(--slice-4);
+            transform: translate(5px, 10px);
+          }
+          70% {
+            clip-path: var(--slice-2);
+            transform: translate(-10px, 10px);
+          }
+          80% {
+            clip-path: var(--slice-5);
+            transform: translate(20px, -10px);
+          }
+          90% {
+            clip-path: var(--slice-1);
+            transform: translate(-10px, 0px);
+          }
+          100% {
+            clip-path: var(--slice-1);
+            transform: translate(0);
+          }
+        }
+
       }
-      
-      button:hover::after {
-        animation: 1s glitch;
-        animation-timing-function: steps(2, end);
-      }
-      
-      @keyframes glitch {
-        0% {
-          clip-path: var(--slice-1);
-          transform: translate(-20px, -10px);
-        }
-        10% {
-          clip-path: var(--slice-3);
-          transform: translate(10px, 10px);
-        }
-        20% {
-          clip-path: var(--slice-1);
-          transform: translate(-10px, 10px);
-        }
-        30% {
-          clip-path: var(--slice-3);
-          transform: translate(0px, 5px);
-        }
-        40% {
-          clip-path: var(--slice-2);
-          transform: translate(-5px, 0px);
-        }
-        50% {
-          clip-path: var(--slice-3);
-          transform: translate(5px, 0px);
-        }
-        60% {
-          clip-path: var(--slice-4);
-          transform: translate(5px, 10px);
-        }
-        70% {
-          clip-path: var(--slice-2);
-          transform: translate(-10px, 10px);
-        }
-        80% {
-          clip-path: var(--slice-5);
-          transform: translate(20px, -10px);
-        }
-        90% {
-          clip-path: var(--slice-1);
-          transform: translate(-10px, 0px);
-        }
-        100% {
-          clip-path: var(--slice-1);
-          transform: translate(0);
-        }
-      }
+  
     }
   
   
@@ -985,7 +1208,7 @@
     }
   }
 
-}  
+  
 
 
 

@@ -15,11 +15,6 @@ export const nav = [
     cName: "nav__link",
   },
   {
-    text: "FAQ",
-    path: "/faq",
-    cName: "nav__link",
-  },
-  {
     text: "CONTACT",
     path: "/contact",
     cName: "nav__link",

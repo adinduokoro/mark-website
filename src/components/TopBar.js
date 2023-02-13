@@ -12,7 +12,7 @@ const TopBar = () => {
       <div className="contact__container">
         <div className="phone">
           <FaMobileAlt />
-          <p>+1 444-444-4444</p>
+          <p>+1 444-444-4444n</p>
         </div>
         <div className="email">
           <MailIcon />

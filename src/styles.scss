@@ -22,6 +22,8 @@
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+  background-color: #141414;
+  
 
 
   
@@ -29,6 +31,8 @@
     color: #ebebeb;
     background-color: #141414;
     padding-top: 9rem;
+    border-top: 2px solid #FFD700;
+
     @include mobile(){
       padding-top: 4rem;
     }
@@ -38,13 +42,13 @@
       .location__hero{
         position: relative;
         height: 30vh;
-
+        
         img {
           object-fit: cover;
           width: 100%;
           height: 100%;
         }
-
+        
         .overlay{
           position: absolute;
           top: 0;
@@ -54,9 +58,9 @@
           background-color: #000;
           z-index: 3;
           opacity: .8;
-
+          
         }
-
+        
         h1{
           position: absolute;
           color: #ebebeb;
@@ -67,6 +71,82 @@
           font-weight: 800;
           font-size: 4rem;
           white-space: nowrap;
+
+          @include mobile(){
+            font-size: 2rem;
+          }
+        }
+      }
+
+      .location__info{
+        display: flex;
+        padding: 1.5rem;
+        @include mobile(){
+          flex-direction: column;
+          padding: 1rem;
+        }
+        
+
+        .location__img{
+          flex: 2;
+          padding: 3rem;
+          @include tablet(){
+            padding: 1rem;
+          }
+          @include mobile(){
+            padding: 12px;
+          }
+
+          img{
+            width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          }
+        }
+        .location__text{
+          flex: 1;
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 3rem;
+          white-space: nowrap;
+
+
+
+          h1{
+            color: #FFD700;
+            font-size: 2.5rem;
+            font-weight: 700;
+            @include tablet(){
+              font-size: 1.5rem;
+              font-weight: 500;
+            }
+            @include mobile(){
+              font-size: 1.5rem;
+              font-weight: 500;
+            }
+
+          }
+
+          p{
+            color: #ebebeb;
+            font-size: 1.5rem;
+            @include tablet(){
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      .google__maps{
+        width: 75%;
+        padding: 3rem;
+        @include tablet(){
+          display: flex;
+          width: 100%;
+        }
+        @include mobile(){
+          display: flex;
+          width: 100%;
         }
       }
     }
@@ -76,6 +156,7 @@
     background-color: #141414;
     padding-top: 9rem;
     width: 100%;
+    border-top: 2px solid #FFD700;
     
     
     @include mobile(){
@@ -116,6 +197,10 @@
           font-weight: 800;
           font-size: 4rem;
           white-space: nowrap;
+
+          @include mobile(){
+            font-size: 2rem;
+          }
         }
       }
 
@@ -126,6 +211,12 @@
         .packages__info{
           display: flex;
           padding: 3rem 5rem;
+          @include mobile(){
+            padding: 25px 3px;
+          }
+          @include tablet(){
+            padding: 50px 15px;
+          }
           
           .package__title{
             flex: .25;
@@ -135,11 +226,17 @@
             h1{
               color: #ebebeb;
               font-weight: 600;
+              @include mobile(){
+                font-size: 20px;
+              }
             }
 
             p {
               color: #FFD700;
               font-size: 2.5rem;
+              @include mobile(){
+                font-size: 20px;
+              }
             }
           }
 
@@ -150,6 +247,13 @@
             p {
               color: #ebebeb;
               font-size: 2rem;
+
+              @include mobile(){
+                font-size: 20px;
+              }
+              @include tablet(){
+                font-size: 20px;
+              }
             }
 
 
@@ -178,6 +282,16 @@
             box-shadow: 6px 0px 0px #FFD700;
             outline: transparent;
             position: relative;
+            @include mobile(){
+              width: 100px;
+              height: 50px;
+              font-size: 20px;
+            }
+            @include tablet(){
+              width: 100px;
+              height: 50px;
+              font-size: 20px;
+            }
           }
           
           button::after {
@@ -408,6 +522,9 @@
       height: 4rem;
       padding: 0 2rem;
     }
+    @include tablet(){
+      padding: 0;
+    }
   
     
     .navbar__container{
@@ -415,20 +532,13 @@
       height: 100%;
       justify-content: space-between;
       background-color: #ebebeb;
-  
-      .navbar__logp{
-        cursor: pointer;
-        height: 100%;
-        width: 100%;    
-      }
       
       img{
         object-fit: cover;
         height: 100%;
         width: 100%;
-        
-      
-    }
+      }
+
   
       
     }
@@ -441,11 +551,9 @@
       display: flex;
       align-items: center;
       @include tablet(){
-        display: none;
+        
       }
-      @include mobile(){
-        display: none;
-      }
+
       
       .nav__menu{
         font-family: 'Bebas Neue', cursive;
@@ -455,6 +563,10 @@
         list-style: none;
         align-items: center;
         margin-right: 40px;
+        @include mobile(){
+          margin-right: 20px;
+        }
+
   
         .nav__link{
           text-decoration: none;
@@ -463,14 +575,22 @@
           letter-spacing: 2px;
           color: #141414;
           padding: 10px;
-  
+
+          
           &:hover{
             background-color: #ffd700;
             border-radius: 4px;
             transition: all 0.2s ease-in-out;
           }
+          @include mobile(){
+            font-size: 16px;
+            padding: 0;
+          }
         }
       }
+
+
+
       .booknow__btn{
         button, button::after {
           cursor: pointer;
@@ -561,7 +681,17 @@
         }
 
       }
-  
+
+      @include tablet(){
+        .booknow__btn{
+          display: none;
+        }
+      }
+      @include mobile(){
+        .booknow__btn{
+          display: none;
+        }
+      }
     }
   
   

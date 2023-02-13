@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 import { Component } from 'react'
 
 //  dolores?
-
 const Navbar = () => {
   return (
     <div className='navbar'>
